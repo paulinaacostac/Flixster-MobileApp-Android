@@ -26,7 +26,7 @@ PORTRAIT MODE:
 <img src='FlixsterUnit1Portrait.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 LANDSCAPE MODE:
-<img src="FlixsterUnit1Landscape.gif" width=250><br>
+<img src='FlixsterUnit1Landscape.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 ### Notes
