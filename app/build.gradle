@@ -1,9 +1,10 @@
 plugins {
     id 'com.android.application'
-}
 
+}
 android {
     compileSdk 31
+    dataBinding.enabled = true // <---- For the data binding stretch story
 
     defaultConfig {
         applicationId "com.codepath.paulina.flixster"
@@ -48,5 +49,5 @@ dependencies {
     implementation 'org.parceler:parceler-api:1.1.12'
     annotationProcessor 'org.parceler:parceler:1.1.12'
 
-    
+
 }
