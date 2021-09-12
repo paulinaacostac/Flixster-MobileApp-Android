@@ -110,8 +110,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
             }
 
             // For unit 2 adding rounded corners
-            int radius = 50; // corner radius, higher value = more rounded
-            int margin = 100; // crop margin, set to 0 for corners with no crop
+            int radius = 30; // corner radius, higher value = more rounded
+            int margin = 1; // crop margin, set to 0 for corners with no crop
             GlideApp.with(context)
                     .load(imageUrl)
                     .centerCrop()

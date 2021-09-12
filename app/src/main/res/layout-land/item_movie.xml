@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/ivPoster"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_height="120dp"
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:background="#020202"
@@ -36,7 +36,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvTitle"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="5dp"
+        android:maxLines="4"
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/ivPoster"
         android:textColor="@color/white"
@@ -51,10 +52,10 @@
         android:layout_alignTop="@id/ivPoster"
         android:layout_alignEnd="@id/ivPoster"
         android:layout_alignBottom="@id/ivPoster"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="45dp"
         app:srcCompat="@drawable/yt_icon_rgb"
         tools:srcCompat="@drawable/yt_icon_rgb" />
 
