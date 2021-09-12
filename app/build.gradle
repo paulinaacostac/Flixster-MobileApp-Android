@@ -48,12 +48,5 @@ dependencies {
     implementation 'org.parceler:parceler-api:1.1.12'
     annotationProcessor 'org.parceler:parceler:1.1.12'
 
-    //Data Binding for views
-    apply plugin: 'com.android.application'
-
-    android {
-        // Previously there
-        // Add this next line
-        dataBinding.enabled = true // <----
-        // ...
+    
 }
