@@ -11,8 +11,11 @@
         android:id="@+id/ivPoster"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
+        android:layout_margin="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:focusable="auto"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -53,4 +56,20 @@
         android:textColor="@color/white"
         android:textStyle="italic"
         tools:text="Supervillains Harley Quinn, Bloodsport, Peacemaker and a collection of nutty cons at Belle Reve prison join the super-secret, super-shady Task Force X as they are dropped off at the remote, enemy-infused island of Corto Maltese." />
+
+    <ImageView
+        android:id="@+id/ivYoutubeLogo"
+        android:layout_width="93dp"
+        android:layout_height="102dp"
+        android:layout_alignStart="@id/ivPoster"
+        android:layout_alignTop="@id/ivPoster"
+        android:layout_alignEnd="@id/ivPoster"
+        android:layout_alignBottom="@id/ivPoster"
+        android:layout_margin="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        app:srcCompat="@drawable/yt_icon_rgb"
+        tools:srcCompat="@drawable/yt_icon_rgb" />
 </RelativeLayout>

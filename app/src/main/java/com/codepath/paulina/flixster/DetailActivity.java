@@ -1,5 +1,7 @@
 package com.codepath.paulina.flixster;
 
+import static com.codepath.paulina.flixster.adapters.MovieAdapter.POPULAR_RATING;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -49,6 +51,7 @@ public class DetailActivity extends YouTubeBaseActivity {
         tvOverview.setText(movie.getOverview());
         ratingBar.setRating((float) movie.getRating());
 
+
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(String.format(VIDEOS_URL, movie.getMovieId()), new JsonHttpResponseHandler() {
             @Override
@@ -82,7 +85,7 @@ public class DetailActivity extends YouTubeBaseActivity {
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 Log.d("DetailActivity","onInitializationSuccess");
                 youTubePlayer.cueVideo(youtubeKey);
-                if(movie.getRating() > 7.0)
+                if(movie.getRating() > POPULAR_RATING)
                 {
                     youTubePlayer.loadVideo(youtubeKey);
                 }

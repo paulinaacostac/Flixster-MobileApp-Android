@@ -33,10 +33,12 @@ import org.parceler.Parcels;
 
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
 {
+    public static double POPULAR_RATING = 7.0;
     Context context;
     List<Movie> movies;
 
@@ -78,10 +80,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
         TextView tvTitle;
         TextView tvOverview;
         ImageView ivPoster;
+        ImageView ivYoutubeIcon;
 
         public ViewHolder(@NonNull View itemView)
         {
             super(itemView);
+            ivYoutubeIcon = itemView.findViewById(R.id.ivYoutubeLogo);
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvOverview = itemView.findViewById(R.id.tvOverview);
             ivPoster = itemView.findViewById(R.id.ivPoster);
@@ -105,14 +109,21 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
                 imageUrl = movie.getPosterPath();
             }
 
+            // For unit 2 adding rounded corners
+            int radius = 50; // corner radius, higher value = more rounded
+            int margin = 100; // crop margin, set to 0 for corners with no crop
             GlideApp.with(context)
                     .load(imageUrl)
-                    //.apply(new RequestOptions()
-                    //                .placeholder(android.R.drawable.progress_indeterminate_horizontal)
-                    //        )
+                    .centerCrop()
+                    .transform(new RoundedCornersTransformation(radius,margin))
                     .into(ivPoster);
 
             //Unit 2
+
+            if(movie.getRating() <= POPULAR_RATING)
+            {
+                ivYoutubeIcon.setVisibility(View.INVISIBLE);
+            }
             // 1. Register click listener on the whole row
             container.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -122,7 +133,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
                     //i.putExtra("title",movie.getTitle()); ---> This is not needed anymore because instead of passing attribute by attribute to DetailActivity, we can use the Parcles third party library
                     i.putExtra("movie", Parcels.wrap(movie));
 
-                    //****
+                    //**** Transition
                     // Pass data object in the bundle and populate details activity.
                     Pair<View, String> transitionTitle = Pair.create((View)tvTitle, "titleTransition");
                     Pair<View, String> transitionOverview = Pair.create((View)tvOverview, "overviewTransition");
