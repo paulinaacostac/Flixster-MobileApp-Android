@@ -32,8 +32,7 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 <img src='FlixsterUnit1Landscape.gif' title='Video Walkthrough1' width='' alt='Video Walkthrough1' />
 
 ### Notes
-
-Describe any challenges encountered while building the app.
+The most challenging part was understanding how to prioritize the stretch stories. For example I started doing the data bindings story but then I figured that the rest of the stories were more related. Hence when I deleted myt code and pushed to Github I had many conflicts and issues that forced me to merge, at the end that broke my code. It would've been much easier if from the beginning I read all the stories first to plan out a execution strategy.
 
 ## Open-source libraries used
 - [Android Async HTTP](https://github.com/codepath/CPAsyncHttpClient) - Simple asynchronous HTTP requests with JSON parsing
