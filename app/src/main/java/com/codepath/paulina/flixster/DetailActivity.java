@@ -44,6 +44,7 @@ public class DetailActivity extends YouTubeBaseActivity {
         //String title = getIntent().getStringExtra("title"); --------> This is not needed anymore because the Parcels library is wrapping the whole movie object instead of attribute by attribute
 
         Movie movie = Parcels.unwrap(getIntent().getParcelableExtra("movie"));
+
         tvTitle.setText(movie.getTitle());
         tvOverview.setText(movie.getOverview());
         ratingBar.setRating((float) movie.getRating());
@@ -60,7 +61,7 @@ public class DetailActivity extends YouTubeBaseActivity {
                     }
                     String youtubeKey = results.getJSONObject(0).getString("key");
                     Log.d("DetailActivity","the Youtube key is: "+youtubeKey);
-                    initializeYoutube(youtubeKey);
+                    initializeYoutube(youtubeKey,movie);
                 } catch (JSONException e) {
                     Log.e("DetailActivity","Failed to parse JSON",e);
                     e.printStackTrace();
@@ -74,12 +75,22 @@ public class DetailActivity extends YouTubeBaseActivity {
         });
     }
 
-    private void initializeYoutube(String youtubeKey) {
+
+    private void initializeYoutube(String youtubeKey,Movie movie) {
         youtubePlayerView.initialize(YOUTUBE_API_KEY, new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 Log.d("DetailActivity","onInitializationSuccess");
                 youTubePlayer.cueVideo(youtubeKey);
+                if(movie.getRating() > 7.0)
+                {
+                    youTubePlayer.loadVideo(youtubeKey);
+                }
+                else
+                {
+                    youTubePlayer.cueVideo(youtubeKey);
+                }
+
             }
 
             @Override

@@ -1,5 +1,6 @@
 package com.codepath.paulina.flixster.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -14,11 +15,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.codepath.paulina.flixster.DetailActivity;
+import com.codepath.paulina.flixster.MainActivity;
 import com.codepath.paulina.flixster.R;
 import com.codepath.paulina.flixster.models.Movie;
 
@@ -117,7 +121,17 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
                     Intent i = new Intent(context, DetailActivity.class);
                     //i.putExtra("title",movie.getTitle()); ---> This is not needed anymore because instead of passing attribute by attribute to DetailActivity, we can use the Parcles third party library
                     i.putExtra("movie", Parcels.wrap(movie));
-                    context.startActivity(i);
+
+                    //****
+                    // Pass data object in the bundle and populate details activity.
+                    Pair<View, String> transitionTitle = Pair.create((View)tvTitle, "titleTransition");
+                    Pair<View, String> transitionOverview = Pair.create((View)tvOverview, "overviewTransition");
+                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, transitionTitle, transitionOverview);
+                    context.startActivity(i, options.toBundle());
+                    //*****
+
+
+                    //context.startActivity(i); Without transition
 
                 }
             });

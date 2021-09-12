@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity"
-    android:orientation ="vertical"
-    >
+    android:background="#000000"
+    android:orientation="vertical"
+    tools:context=".DetailActivity">
 
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/player"
@@ -16,22 +17,35 @@
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="#00000000"
         android:text="Shang-Chi and the Legend of the Ten Rings"
-        android:textSize="30sp" />
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:transitionName="titleTransition" />
 
     <RatingBar
         android:id="@+id/ratingBar"
         style="@style/Widget.AppCompat.RatingBar.Indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:isIndicator="true"
         android:numStars="10"
+        android:progressBackgroundTint="#FFFFFF"
+        android:progressTint="#C60E0E"
         android:rating="8.5" />
 
     <TextView
         android:id="@+id/tvOverview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Shang-Chi must confront the past he thought he left behind when he is drawn into the web of the mysterious Ten Rings organization." />
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Shang-Chi must confront the past he thought he left behind when he is drawn into the web of the mysterious Ten Rings organization."
+        android:textColor="#FFFFFF"
+        android:transitionName="overviewTransition" />
 
 </LinearLayout>
